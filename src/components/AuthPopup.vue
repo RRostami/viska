@@ -3,7 +3,7 @@
     <div v-if="currentPage === 'duplicate'" :class="$style.sessionError">
       <h2 class="padding-bottom-lg"><i class="fa fa-info-circle"> Close the Other Sessions First. </i></h2>
       <h3 role="button" @click="currentPage = 'choose'">
-        <b> <i class="fa fa-chevron-right" /> Or Let Me Try with Another Credentials </b>
+        <b> <i class="fa fa-chevron-right" /> Or Let Me Try with Another Credential </b>
       </h3>
     </div>
     <div :class="$style.box" class="padding-lg" v-else-if="currentPage === 'logout'">
@@ -11,7 +11,7 @@
         <h3> Logout. </h3>
       </div>
       <div class="padding-bottom-xl">
-        <p> Are you sure you want to exit from app? </p>
+        <p> Are you sure you want to exit the app? </p>
       </div>
       <Cell>
         <div class="padding-right-md grow">
@@ -29,7 +29,7 @@
     <div :class="$style.box" class="padding-lg" v-else-if="currentPage === 'choose'">
       <div class="padding-bottom-lg">
         <Button class="size-xxl padding-xl" color="primary" fullWidth @click.native="currentPage = 'persistLogin'">
-          <div class="padding-bottom-md text-xl"> <b> <i class="fa fa-key" />  Enter to My Account </b> </div>
+          <div class="padding-bottom-md text-xl"> <b> <i class="fa fa-key" />  Enter My Account </b> </div>
           <p> Login/Signup </p>
         </Button>
       </div>
@@ -45,7 +45,7 @@
         <a role="button" @click="currentPage = 'choose'"> <b> <i class="fa fa-chevron-left" />  Back </b> </a>
       </div>
       <div class="padding-bottom-xl">
-        <p> This form is using for both login and signup. If you enter a existed username, the system will check for password. otherwise your account will be generate. </p>
+        <p> This form is used for both login and signup. If you enter an existing username, the system will check the password; otherwise a new account will be generated. </p>
       </div>
       <form @submit.prevent="auth('persist')">
         <div class="padding-bottom-lg">
@@ -53,7 +53,7 @@
             <b> <i class="fa fa-user" /> Username </b>
           </div>
           <div class="padding-bottom-md">
-            <Input placeholder="Enter Your Username." autocomplete="username" required v-model="form.username" :disabled="loading" name="username" pattern="^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$" minlength="3"/>
+            <Input placeholder="Your Username" autocomplete="username" required v-model="form.username" :disabled="loading" name="username" pattern="^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$" minlength="3"/>
           </div>
         </div>
         <div class="padding-bottom-xl">
@@ -61,10 +61,10 @@
             <b> <i class="fa fa-fingerprint" /> Password </b>
           </div>
           <div class="padding-bottom-md">
-            <Input placeholder="Enter Your Password." autocomplete="current-password" required v-model="form.password" :disabled="loading" name="password" type="password"/>
+            <Input placeholder="Your Password" autocomplete="current-password" required v-model="form.password" :disabled="loading" name="password" type="password"/>
           </div>
           <div>
-            <small> <i class="fa fa-info-circle" /> Keep your password somewhere safe. There is no Reset-Password like feature. </small>
+            <small> <i class="fa fa-info-circle" /> Keep your password somewhere safe. There is no Reset-Password option. </small>
           </div>
         </div>
         <div class="padding-bottom-lg">
@@ -73,11 +73,11 @@
           </div>
         </div>
         <div class="padding-bottom-xl" :class="$style.dangerText" v-if="passError">
-          <p> <i class="fa fa-info-circle" /> The entered username is already in system and/or the password is wrong. </p>
+          <p> <i class="fa fa-info-circle" /> This username already exists in the system OR the password is incorrect. </p>
         </div>
         <div>
           <Button class="size-md" color="primary" fullWidth :disabled="loading" :loading="loading">
-            <b> <i class="fa fa-check" />  Enter </b>
+            <b> <i class="fa fa-check" /> Enter </b>
           </Button>
         </div>
       </form>
